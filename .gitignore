@@ -1,0 +1,5 @@
+.vs/*
+PandaChat/obj/*
+PandaChat/bin/*
+PandaChat/Engine/CFG.cs
+packages/*

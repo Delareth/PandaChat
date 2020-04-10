@@ -1,0 +1,78 @@
+﻿<Window 
+  x:Class="PandaChat.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:tb="http://www.hardcodet.net/taskbar"
+  mc:Ignorable="d"
+  Title="Panda Chat"
+	Left="{Binding Path=Left, Mode=TwoWay}"
+  Top="{Binding Path=Top, Mode=TwoWay}"
+  Width="{Binding Path=Width, Mode=TwoWay}"
+  Height="{Binding Path=Height, Mode=TwoWay}"
+  ResizeMode="{Binding Path=ResizeMode, Mode=OneWay}"
+  ShowInTaskbar="{Binding Path=WindowTaskBar, Mode=OneWay}"
+	WindowStyle="None"
+  Background="Transparent"
+	AllowsTransparency="True"
+	Topmost="True"
+  MinHeight="150px" MinWidth="150px"
+	Icon="pack://application:,,,/ui/fav.ico"
+  SourceInitialized="WindowSourceInitialized"
+	Closed="WindowClosed"
+>
+  <Grid Name="MainGrid">
+    <tb:TaskbarIcon
+      x:Name="WpfTaskIcon"
+      IconSource="pack://application:,,,/ui/fav.ico"
+      ToolTipText="Panda Chat - ПКМ для взаимодействия"
+			tb:TaskbarIcon.TrayRightMouseDown="FirstMousePress">
+
+       <!--Set a simple context menu-->  
+      <tb:TaskbarIcon.ContextMenu>
+        <ContextMenu Background="WhiteSmoke">
+          <MenuItem Header="Тестовые оповещения">
+            <MenuItem Header="Сообщение в чат" Click="TestMessageButton"></MenuItem>
+            <MenuItem Header="Новый фолловер" Click="TestFollowerButton"></MenuItem>
+            <MenuItem Header="Сообщение о донате" Click="TestDonateButton"></MenuItem>
+          </MenuItem>
+          <MenuItem Header="{Binding Path=HeaderShowInTaskBar, Mode=OneWay}" Click="ShowInToolbarButton"/>
+          <MenuItem Header="{Binding Path=HeaderChangeSize, Mode=OneWay}" Click="ChangeSizeButton"/>
+          <MenuItem Header="{Binding Path=HeaderMouseTransparent, Mode=OneWay}" Click="MouseButton"/>
+          <MenuItem Header="Настройки" Click="SettingsButton"/>
+          <MenuItem Header="Выйти" Click="CloseButton">
+          </MenuItem>
+        </ContextMenu>
+      </tb:TaskbarIcon.ContextMenu>
+    </tb:TaskbarIcon>
+
+    <TextBox 
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			VerticalContentAlignment="Center"
+			TextAlignment="Center"
+			Height="278" 
+			Margin="10,10" 
+			TextWrapping="Wrap" 
+			Text="Нажмите ПКМ по значку в трее для взаимодействия" 
+			Width="280"
+			Visibility="{Binding Path=FirstInit, Mode=OneWay}"
+			IsHitTestVisible="False"
+			Background="Transparent"
+			FontSize="26" 
+			Foreground="RoyalBlue"
+			FontWeight="Bold"
+			BorderThickness="0"
+		>
+      <TextBox.RenderTransform>
+        <TransformGroup>
+          <ScaleTransform/>
+          <SkewTransform AngleX="-0.203"/>
+          <RotateTransform/>
+          <TranslateTransform X="-0.496"/>
+        </TransformGroup>
+      </TextBox.RenderTransform>
+    </TextBox>
+  </Grid>
+</Window>
