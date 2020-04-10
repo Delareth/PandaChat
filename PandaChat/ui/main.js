@@ -4,10 +4,10 @@ let hideTimer = null;
 function addDonate(nick, mess, amount, value)
 {
   let string = "<div class='container'>" +
-		"<span class='nickname'>PandaChat: </span>" +
-		"<span class='message'><span class='donate_nickname'>" + nick + "</span>" +
-		" задонатил <span class='donate_amount'>" + amount + " (" + value + ")</span>" +
-		": " + mess + "</span></div>";
+    "<span class='nickname'>PandaChat: </span>" +
+    "<span class='message'><span class='donate_nickname'>" + nick + "</span>" +
+    " задонатил <span class='donate_amount'>" + amount + " (" + value + ")</span>" +
+    ": " + mess + "</span></div>";
 
   send(string);
 }
@@ -15,9 +15,9 @@ function addDonate(nick, mess, amount, value)
 function addFollower(nick)
 {
   let string = "<div class='container'>" +
-		"<span class='nickname'>PandaChat: </span>" +
-		"<span class='message'><span class='maintext_green'>" + nick + "</span> только что подписался!</span>" +
-		"</div>";
+    "<span class='nickname'>PandaChat: </span>" +
+    "<span class='message'><span class='maintext_green'>" + nick + "</span> только что подписался!</span>" +
+    "</div>";
 
   send(string);
 }
@@ -132,7 +132,7 @@ function reloadSize()
 
 function setStreamInfo(isOnline, viewers, followers)
 {
-	if (isOnline)
+  if (isOnline)
   {
     if (currentStreamState === "offline")
     {
